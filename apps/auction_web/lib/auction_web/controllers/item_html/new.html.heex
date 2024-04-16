@@ -1,0 +1,15 @@
+<section>
+  /* todo
+  Add Form Validation
+  */
+  <.simple_form :let={f} for={@changeset} action={~p"/items/"}>
+    <.input field={f[:title]} label="title" />
+    <.input field={f[:description]} label="description" />
+
+    <.input field={f[:price]} label="price" />
+    <.input field={f[:ends_at]} type="date" label="ends_at" />
+    <:actions>
+      <.button type="submit">Save</.button>
+    </:actions>
+  </.simple_form>
+</section>

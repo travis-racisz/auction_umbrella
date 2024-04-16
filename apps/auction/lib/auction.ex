@@ -21,6 +21,10 @@ defmodule Auction do
     |> @repo.insert()
   end
 
+  def new_item() do
+    Item.changeset(%Item{})
+  end
+
   def update_item(id, attrs) do
     get_item(id)
     |> Item.changeset(attrs)
