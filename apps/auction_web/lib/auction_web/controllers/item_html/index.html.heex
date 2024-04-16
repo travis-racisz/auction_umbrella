@@ -1,0 +1,8 @@
+<section>
+  <%= for item <- @items do %>
+    <strong class="text-3xl bold"></strong>
+    <.link href={~p"/items/#{item.id}"}><%= item.title %></.link>
+    <p class="text-lg text-blue-800 bold "><%= item.description %></p>
+    <p>Price <%= Decimal.from_float(item.price / 100) |> Decimal.to_integer() %>$</p>
+  <% end %>
+</section>

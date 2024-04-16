@@ -1,6 +1,4 @@
 <.flash_group flash={@flash} />
-<div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]">
-  <%= for item <- @items do %>
-    <li><strong><%= item.title %></strong></li>
-  <% end %>
+<div class="flex items-center content-center justify-center height-screen">
+  <a class="text-4xl bold border-2 p-5 rounded" href="/items">View Items for sale</a>
 </div>
