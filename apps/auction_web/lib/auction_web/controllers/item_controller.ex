@@ -17,10 +17,22 @@ defmodule AuctionWeb.ItemController do
   end
 
   def create(conn, %{"item" => item_params}) do
-    {:ok, _item} = Auction.insert_item(item_params)
+    case Auction.insert_item(item_params) do
+      {:ok, item} ->
+        conn
+        |> put_flash(:info, "Item created successfully.")
+        |> redirect(to: ~p"/items/#{item}")
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
+
+  def delete(conn, %{"id" => id}) do
+    Auction.delete_item(%{id: id})
 
     conn
-    |> put_flash(:info, "Item created successfully.")
+    |> put_flash(:info, "Item deleted successfully.")
     |> redirect(to: ~p"/items")
   end
 end

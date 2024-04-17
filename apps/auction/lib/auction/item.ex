@@ -6,12 +6,13 @@ defmodule Auction.Item do
     field(:description, :string)
     field(:price, :integer)
     field(:ends_at, :utc_datetime)
+    belongs_to(:user, Auction.User)
     timestamps()
   end
 
   def changeset(item, attrs \\ %{}) do
     item
-    |> Ecto.Changeset.cast(attrs, [:title, :description, :price])
-    |> Ecto.Changeset.validate_required([:title, :description, :price])
+    |> Ecto.Changeset.cast(attrs, [:title, :description, :price, :belongs_to])
+    |> Ecto.Changeset.validate_required([:title, :description, :price, :belongs_to])
   end
 end
