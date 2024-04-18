@@ -12,7 +12,7 @@ defmodule Auction.Item do
 
   def changeset(item, attrs \\ %{}) do
     item
-    |> Ecto.Changeset.cast(attrs, [:title, :description, :price, :belongs_to])
-    |> Ecto.Changeset.validate_required([:title, :description, :price, :belongs_to])
+    |> Ecto.Changeset.cast(attrs, [:title, :description, :price])
+    |> Ecto.Changeset.validate_required([:title, :description, :price])
   end
 end
