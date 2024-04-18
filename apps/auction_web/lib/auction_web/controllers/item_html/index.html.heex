@@ -7,6 +7,14 @@
       <p class="text-lg text-blue-800 bold "><%= item.description %></p>
       <p>Price <%= Decimal.from_float(item.price / 100) |> Decimal.to_integer() %>$</p>
     </div>
+    <.link
+      class="rounded bg-red-800 text-lg text-white p-5 m-10"
+      href={~p"/items/#{item}"}
+      method="delete"
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
   <% end %>
   <.link class="rounded bg-blue-800 tx-lg text-white p-5 m-10" href={~p"/items/new"}>
     New Item

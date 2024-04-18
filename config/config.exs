@@ -19,6 +19,10 @@ config :auction, Auction.Repo,
   hostname: "localhost",
   port: 5432
 
+config :auction, Auction.Guardian,
+  issuer: "auction",
+  secret_key: "GFPkZXIOTXvl/VAW15gnO1s/QKoLamXU5y+ywKXcTlbXOgwFVQrSoy0a5/tDRd+X"
+
 config :auction_web,
   generators: [context_app: false]
 

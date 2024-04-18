@@ -6,6 +6,7 @@ defmodule Auction.Item do
     field(:description, :string)
     field(:price, :integer)
     field(:ends_at, :utc_datetime)
+    belongs_to(:user, Auction.User)
     timestamps()
   end
 

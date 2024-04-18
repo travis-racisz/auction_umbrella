@@ -30,4 +30,8 @@ defmodule Auction do
     |> Item.changeset(attrs)
     |> @repo.update()
   end
+
+  def delete_item(id) do
+    get_item(id) |> @repo.delete()
+  end
 end
