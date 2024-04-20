@@ -1,0 +1,8 @@
+<section>
+  <.simple_form :let={f} for={@changeset}>
+    <.input field={f[:email]} label="Email" />
+    <.input field={f[:password]} label="Password" />
+    <.input field={f[:password_confirmation]} label="Password Confirmation" />
+    <.button type="submit">Sign up</.button>
+  </.simple_form>
+</section>

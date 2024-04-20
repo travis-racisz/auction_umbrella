@@ -12,7 +12,7 @@ defmodule Auction.Guardian do
   end
 
   def subject_for_token(_, _) do
-    {:error, :reason_for_error}
+    {:error, :unhandled_resource_type}
   end
 
   def resource_from_claims(%{"sub" => id}) do

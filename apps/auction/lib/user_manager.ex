@@ -1,5 +1,5 @@
 defmodule Auction.UserManager do
-  alias Auction.{Repo, User}
+  alias Auction.{Repo, User, Guardian}
   @repo Repo
   def create_user(attr) do
     %User{}
@@ -7,22 +7,26 @@ defmodule Auction.UserManager do
     |> @repo.insert()
   end
 
-  def login({email, plain_text_password}) do
-    case get_user_by_email(%{email: email}) do
+  def login(%{"user" => %{"email" => email, "password" => password}}) do
+    case get_user_by_email(email) do
       {:ok, user} ->
-        if Argon2.verify_pass(plain_text_password, user.password) do
-          {:ok, user}
+        if Argon2.verify_pass(password, user.password) do
+          # use guardian to generate token
+          case Guardian.encode_and_sign(%{id: user.id}) do
+            {:ok, token, _claims} -> {:ok, token}
+            {:error, reason} -> {:error, "Error generating token: #{reason}"}
+          end
         else
           {:error, "Invalid email or password"}
         end
 
       {:error, _reason} ->
-        {:error, "Invalid email or password"}
+        {:error, "invalid email or password"}
     end
   end
 
-  def get_user_by_email(%{email: email}) do
-    case @repo.get_by!(User, email: email) do
+  def get_user_by_email(email) do
+    case @repo.get_by(User, email: email) do
       nil -> {:error, "User not found"}
       user -> {:ok, user}
     end
@@ -33,5 +37,9 @@ defmodule Auction.UserManager do
       nil -> {:error, "User not found"}
       user -> {:ok, user}
     end
+  end
+
+  def new_session() do
+    User.changeset(%User{})
   end
 end

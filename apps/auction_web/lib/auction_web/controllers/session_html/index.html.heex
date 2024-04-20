@@ -1,0 +1,14 @@
+<section>
+  <h2>Login</h2>
+
+  <.simple_form :let={f} for={@changeset} action={~p"/session"}>
+    <.error :if={@error}>
+      <%= @error %>
+    </.error>
+    <.input field={f[:email]} label="Email" />
+    <.input field={f[:password]} label="Password" />
+    <:actions>
+      <.button type="submit">Login</.button>
+    </:actions>
+  </.simple_form>
+</section>
