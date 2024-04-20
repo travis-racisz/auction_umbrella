@@ -23,8 +23,8 @@ defmodule AuctionWeb.Router do
     get "/login", SessionController, :index
     resources "/session", SessionController, only: [:create]
 
-    get "/signup", SessionController, :sign_up
-    post "/signup", SessionController, :create_user
+    get "/signup", SignupController, :index
+    resources "/signup", SignupController, only: [:create]
   end
 
   # Other scopes may use custom stacks.

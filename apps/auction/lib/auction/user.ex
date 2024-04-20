@@ -12,6 +12,7 @@ defmodule Auction.User do
     user
     |> Ecto.Changeset.cast(attrs, [:email, :password])
     |> Ecto.Changeset.validate_required([:email, :password])
+    |> Ecto.Changeset.unique_constraint(:email)
     |> put_password_hash()
   end
 

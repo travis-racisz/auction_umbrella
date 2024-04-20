@@ -33,7 +33,7 @@ defmodule Auction.UserManager do
   end
 
   def get_user_by_id(id) do
-    case @repo.get_by!(User, id) do
+    case @repo.get_by(User, id) do
       nil -> {:error, "User not found"}
       user -> {:ok, user}
     end

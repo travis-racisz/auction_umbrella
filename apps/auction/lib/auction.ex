@@ -15,8 +15,11 @@ defmodule Auction do
     @repo.get_by!(Item, attrs)
   end
 
-  def insert_item(attrs) do
+  def insert_item(user, attrs) do
+    @repo.get_by!(User, user.id)
+
     %Item{}
+    |> Ecto.build_assoc()
     |> Item.changeset(attrs)
     |> @repo.insert()
   end

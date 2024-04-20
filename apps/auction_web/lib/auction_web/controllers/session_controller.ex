@@ -20,28 +20,4 @@ defmodule AuctionWeb.SessionController do
         render(conn, "index.html", changeset: changeset, error: reason)
     end
   end
-
-  def sign_up(conn, _params) do
-    changeset = Auction.UserManager.new_session()
-    render(conn, "signup.html", changeset: changeset)
-  end
-
-  def create_user(conn, %{"user" => user_params}) do
-    case user_params.password != user_params.password_confirmation do
-      true ->
-        conn
-        |> put_flash(:info, "Passwords do not match.")
-        |> render("signup.html")
-    end
-
-    case Auction.UserManager.create_user(user_params) do
-      {:ok, user} ->
-        conn
-        |> put_flash(:info, "User created successfully.")
-        |> redirect(to: ~p"/")
-
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "signup.html", changeset: changeset)
-    end
-  end
 end

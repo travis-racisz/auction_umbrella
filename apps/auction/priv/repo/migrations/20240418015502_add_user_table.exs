@@ -6,7 +6,7 @@ defmodule Auction.Repo.Migrations.AddUserTable do
       add :email, :string
       add :password, :string
       timestamps()
-          
+
     end
   end
 end

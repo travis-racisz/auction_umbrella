@@ -8,5 +8,6 @@ defmodule Auction.Repo.Migrations.AddReferences do
       alter table(:users) do
       add :items , references(:items, on_delete: :nothing)
       end
+      create unique_index(:users, [:email])
   end
 end
