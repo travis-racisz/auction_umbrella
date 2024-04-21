@@ -18,19 +18,13 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img style = "color: #4B275F" src="https://simpleicons.org/icons/elixir.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">ElixAuction</h3>
@@ -92,8 +86,9 @@ Elix Auction is a simple Auction app that was built with Elixir and Phoenix just
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Elixir][Elixir-lang]][https://elixir-lang.org/]
-* [![Phoenix]][https://www.phoenixframework.org/]
+* ![](https://img.shields.io/badge/elixir-%234B275F?style=for-the-badge&logo=https%3A%2F%2Fsimpleicons.org%2Ficons%2Felixir.svg&logoColor=%234B275F&link=elixir-lang.org)
+* ![Static Badge](https://img.shields.io/badge/Phoenix-%23FD4F00?style=for-the-badge&logo=https%3A%2F%2Fsimpleicons.org%2Ficons%2Felixir.svg&logoColor=%23FD4F00&link=https%3A%2F%2Fwww.phoenixframework.org%2F)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,9 +97,8 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
+You need to have Elixir installed
+Follow the instructions [here](elixir-lang.org) to get started
 
 ### Installation
 
@@ -113,15 +107,11 @@ _Below is an example of how you can instruct your audience on installing and set
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/travis-racisz/auction_umbrella
    ```
-3. Install NPM packages
+3. Install Mix Dependencies
    ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   mix deps.get
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -215,7 +205,7 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://img.shields.io/github/all-contributors/travis-racisz/auction_umbrella
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
