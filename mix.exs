@@ -7,7 +7,14 @@ defmodule AuctionUmbrella.MixProject do
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      name: "ElixAuction",
+      source_url: "https://github.com/travis-racisz/auction_umbrella",
+      docs: [
+        # The main page in the docs
+        main: "ElixAuction",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -23,6 +30,8 @@ defmodule AuctionUmbrella.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [
+      {:ex_doc, "~> 0.31", only: :dev, runtime: false}
+    ]
   end
 end

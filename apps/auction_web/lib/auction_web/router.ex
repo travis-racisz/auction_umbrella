@@ -25,6 +25,9 @@ defmodule AuctionWeb.Router do
 
     get "/signup", SignupController, :index
     resources "/signup", SignupController, only: [:create]
+
+    get "/profile", ProfileController, :index
+    resources "/profile", ProfileController, only: [:show]
   end
 
   # Other scopes may use custom stacks.
